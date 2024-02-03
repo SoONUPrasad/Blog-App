@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%-include('../partials/header.ejs')-%>
+</head>
+<body>
+   <%-include('../partials/navbar.ejs')-%>
+
+   <h1>Blogs</h1>
+
+   <% if(blogs.length === 0) { -%>
+      <p>No blogs found</p>
+   <% } -%>
+
+   <% blogs.forEach(function(blog) { -%>
+      <h2><a href="/blogs/<%-blog._id%>"><%-blog.title%></a></h2>
+      <p><%-blog.description%></p>
+      <p>Created by <%-blog.author%></p>
+      <img src="<%=blog.coverImg%>" alt="cover Image">
+      <hr>
+      <br>
+   <% }) -%>
+
+   <%-include('../partials/footer.ejs')-%>
+</body>
+</html>
